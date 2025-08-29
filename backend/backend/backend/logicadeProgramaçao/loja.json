@@ -1,0 +1,8 @@
+[
+    {
+        "nome_produto": "daniel",
+        "quantidade": 5,
+        "preco": 7.0,
+        "tem_estoque": true
+    }
+]
