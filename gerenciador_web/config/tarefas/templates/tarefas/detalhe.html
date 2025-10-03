@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang = "pt-br">
+    <head>
+
+        {%load static %}
+        <meta charset = "UTF- 8">
+        <title>{{ tarefas.titulo}}</title>
+        <link rel="stylesheet"href = "{% static 'lista/lista.css' %}">
+    </head>
+    <body>
+
+        <h1>{{ tarefas.titulo}}</h1>
+        <p><strong>descrição: </strong>{{ tarefas.descrição|linebrweaks}}</p>
+        <p><strong>Status:</strong>{% if tarefas.concluido %} concluido{% else%} pedente{% endi %}</p>
+
+        <small>Criada em : {{tarefas.data_criacao'}}</small>
+        
+    </body>
+</html>

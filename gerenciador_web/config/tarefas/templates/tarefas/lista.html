@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static%}
+    <meta charset="UTF-8">
+    <title>minha lista de tarefas</title>
+    <link rel="stylesheet" href="{%static'listar/listar.css}">
+</head>
+<body>
+    <h1>Gerenciador de Tarefas Web</h1>
+    <hr>
+    {% for tarefas in minhas_tarefas %}
+        <div> class = "tarefas {% if tarefas.concluido %}concluido{% endif %}">
+            <h2><a href="{% url 'detalhe_tarefa' tarefa.id %}">{{ tarefa.titulo}}</a></h2>
+            <p>{{tarefas.descricao}}</p>
+            <small>Criada em : {{ tarefas.data_criacao }}</small>
+        </div>
+    {% empty %}
+        <p>Nenhuma tarefas cadastrada ainda. Adicione algumas no <a href="/admin">Admin</a>!</p>
+    {% endfor%}
+</body>
+</html>
