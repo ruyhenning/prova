@@ -12,7 +12,7 @@
     <a href="{% url 'adicionar_tarefa' %}"><strong>+ Adicionar Tarefa</strong></a>
     <hr>
     {% for tarefa in minhas_tarefas %}
-        <div>{% if tarefa.concluido %}Concluido{% else %} Pendente {% endif %}</div>
+         <div>{% if tarefa.concluida %}Concluído{% else %} Pendente {% endif %}</div>
             <h2><a href="{% url 'detalhe_tarefa' tarefa.id %}">{{ tarefa.titulo}}</a></h2>
             <p>{{tarefa.descricao}}</p>
             <small>Criada em : {{ tarefa.data_criacao }}</small>

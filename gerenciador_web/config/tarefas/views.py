@@ -26,8 +26,39 @@ def adicionar_tarefa(request):
         titulo = request.POST.get('titulo')
         descricao = request.POST.get('descricao')
         Tarefa.objects.create(titulo = titulo, descricao = descricao)   
-        return redirect('listar_tarefas')
+        return redirect('lista_tarefas')
     return render (request, 'tarefas/form_tarefas.html')
+
+def alterar_tarefa(request, tarefa_id):
+    tarefa = get_object_or_404(Tarefa, pk=tarefa_id)
+    
+    if request.method == 'POST':
+        titulo = request.POST.get('titulo')
+        descricao = request.POST.get('descricao')
+        concluida = request.POST.get('concluida') == 'on' 
+
+      
+        tarefa.titulo = titulo
+        tarefa.descricao = descricao
+        tarefa.concluida = concluida
+        
+        tarefa.save()
+        
+        return redirect('lista_tarefas')
+
+    context = {
+        'tarefa': tarefa,
+    }
+    return render(request, 'tarefas/form_tarefas.html', context)
+
+
+def excluir_tarefa(request, tarefa_id):
+    tarefa = get_object_or_404(Tarefa, pk=tarefa_id)
+    if request.method == 'POST':
+        tarefa.delete()
+        return redirect('lista_tarefas')
+    return render(request, 'tarefas/confirmar_exclusao.html', {'tarefa': tarefa})
+
 
 #métodos HTTP
 #POST: envia dados para o servidor
