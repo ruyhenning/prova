@@ -9,11 +9,9 @@
 <body>
     <h1>Gerenciador de Projetos Web</h1>
 
-    <a href="{% url 'adicionar_projeto' %}"><strong>+ Adicionar Projeto</strong></a>
     <hr>
     {% for projeto in meus_projetos %}
-         <div>{% if projeto.concluida %}Concluído{% else %} Pendente {% endif %}</div>
-            <h2><a href="{% url 'detalhe_projeto' projeto.id %}">{{ projeto.nome}}</a></h2>
+            <h2><a href=>{{ projeto.nome}}</a></h2>
             <p>{{projeto.descricao}}</p>
             <small>Criada em : {{ projeto.data_criacao }}</small>
         </div>

@@ -3,5 +3,5 @@ from django.contrib import admin
 # Register your models here.
 
 # Register your models here.
-from .models import Projetos
-admin.site.register(Projetos)
+from .models import Projeto
+admin.site.register(Projeto)

@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Projetos
+from .models import Projeto
 
 def listar_projetos(request):
     # 1. a busca no banco de dados continua a mesma
-    projetos_salvos = Projetos.objects.all()
+    projetos_salvos = Projeto.objects.all()
 
     # 2. criamos um "dicionario do contexto" para enviar os dados ao template.
     # A chave 'minhas_tarefas' será a variável que usaremos no html.
